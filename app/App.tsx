@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import Pills from './components/Pills';
 import SquarBtns from './components/SquarBtns';
 
 //Components
 const App = () => {
-
+  const [expression, setExpression] = useState('');
+  const [result, setResult] = useState('');
   return (
     <View style={Styles.containerOverall}>
       <View style={Styles.AnsContainer}>
