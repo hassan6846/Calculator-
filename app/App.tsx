@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
-
+import {StatusBar} from "expo-status-bar"
 
 const App = () => {
   const [expression, setExpression] = useState('');
@@ -54,7 +54,10 @@ const App = () => {
   };
 
   return (
+    <>
+    <StatusBar style="light"/>
     <View style={Styles.containerOverall}>
+
       <View style={Styles.AnsContainer}>
         <Text style={Styles.Eval}>{expression}</Text>
         <Text style={Styles.AnswerText}>{result}</Text>
@@ -142,7 +145,9 @@ const App = () => {
         {/* 5th Row Final Bosss Ends */}
       </View>
     </View>
+    </>
   );
+
 };
 
 const Styles = StyleSheet.create({
