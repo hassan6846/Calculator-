@@ -5,17 +5,20 @@ import SquarBtns from './components/SquarBtns';
 
 //Components
 const App = () => {
-  const rowtwo=['Ac','x','/','*'];
 
   return (
     <View style={Styles.containerOverall}>
-      <View style={Styles.AnsContainer}></View>
+      <View style={Styles.AnsContainer}>
+        <Text style={Styles.Eval} >6000/2+3227*2</Text>
+        <Text style={Styles.AnswerText}>=12,454</Text>
+      </View>
 
       <View style={Styles.BtnContainer}>
         {/* Row 1 */}
         <View style={Styles.RowOne}>
           <Pills val="e" />
           <Pills val="μ" />
+          <Pills val="sin" />
           <Pills val="deg" />
         </View>
         {/* Row 1 Ends */}
@@ -90,14 +93,18 @@ const App = () => {
 
 const Styles = StyleSheet.create({
   containerOverall: {
+    
     flex: 1,
     padding: 30,
     backgroundColor: '#f7f8fb',
   },
   AnsContainer: {
+    alignItems:"flex-end",
+    paddingHorizontal:20,
+    justifyContent:'center',
     height: "40%",
     width: "100%",
-    backgroundColor: "cyan",
+ 
   },
   BtnContainer: {
     height: "60%",
@@ -172,6 +179,14 @@ const Styles = StyleSheet.create({
  justifyContent:'center',
  alignItems:'center',
     backgroundColor: "#fff"
+  },
+  AnswerText:{
+    fontSize:50,
+    color:"#302F33"
+  },
+  Eval:{
+   fontSize:16,
+    color:"#97ADB6"
   }
 });
 
