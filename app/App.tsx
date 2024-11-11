@@ -1,40 +1,178 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
+import Pills from './components/Pills';
+import SquarBtns from './components/SquarBtns';
 
+//Components
 const App = () => {
-  const rowone = ['e', 'μ', 'sin', 'deg'];
   const rowtwo=['Ac','x','/','*'];
-  const rowthree=['']
+
   return (
-    <View style={Styles.container}>
-   
+    <View style={Styles.containerOverall}>
+      <View style={Styles.AnsContainer}></View>
+
+      <View style={Styles.BtnContainer}>
+        {/* Row 1 */}
+        <View style={Styles.RowOne}>
+          <Pills val="e" />
+          <Pills val="μ" />
+          <Pills val="deg" />
+        </View>
+        {/* Row 1 Ends */}
+
+        {/* Row 2 */}
+        <View style={Styles.RowTwo}>
+          <SquarBtns backgroundColor="#fff" val="Ac" />
+          <SquarBtns val="⌦" backgroundColor="#fff" />
+          <SquarBtns val="/" textColor="#34b3fa" backgroundColor="#ade1ff" />
+          <SquarBtns textColor="#34b3fa" backgroundColor="#ade1ff" val="*" />
+        </View>
+        {/* Row 2 Ends */}
+
+        {/* Row 3 */}
+        <View style={Styles.RowThree}>
+          <SquarBtns textColor="#34b3fa" backgroundColor="#fff" val="7" />
+          <SquarBtns textColor="#34b3fa" backgroundColor="#fff" val="8" />
+          <SquarBtns val="9" textColor="#34b3fa" backgroundColor="#fff" />
+          <SquarBtns textColor="#34b3fa" backgroundColor="#ade1ff" val="-" />
+        </View>
+        {/* Row 3 Ends */}
+
+        {/* Row 4 Start */}
+        <View style={Styles.RowFour}>
+          <View style={Styles.buttonRow}>
+            <TouchableOpacity style={Styles.squareButton}>
+              <Text style={Styles.buttonText}>4</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={Styles.squareButton}>
+              <Text style={Styles.buttonText}>5</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={Styles.squareButton}>
+              <Text style={Styles.buttonText}>6</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={Styles.squareButton}>
+              <Text style={Styles.buttonText}>1</Text>
+            </TouchableOpacity>
+            {/* 4th Column Button */}
+            <TouchableOpacity style={Styles.squareButton}>
+              <Text style={Styles.buttonText}>2</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={Styles.squareButton}>
+              <Text style={Styles.buttonText}>3</Text>
+            </TouchableOpacity>
+
+
+          </View>
+
+          <TouchableOpacity style={Styles.plusButton}>
+            <Text style={Styles.plusButtonText}>+</Text>
+          </TouchableOpacity>
+        </View>
+        {/* Row 4 Ends */}
+
+        {/* 5th Row Final Bosss */}
+        <View style={Styles.RowFive}>
+          <TouchableOpacity style={Styles.ZeroBtn}>
+            <Text style={Styles.buttonText}>0</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={Styles.squareButton}>
+            <Text style={Styles.buttonText}>.</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{backgroundColor:"#ade1ff",width:60,height:60,borderRadius:5,justifyContent:'center',alignItems:"center"}}>
+            <Text style={Styles.buttonText}>=</Text>
+          </TouchableOpacity>
+        </View>
+        {/* 5th Row Final Bosss  Ends*/}
+      </View>
     </View>
   );
 };
 
 const Styles = StyleSheet.create({
-  container: {
+  containerOverall: {
     flex: 1,
-    backgroundColor: 'red',
-    padding: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 30,
+    backgroundColor: '#f7f8fb',
+  },
+  AnsContainer: {
+    height: "40%",
+    width: "100%",
+    backgroundColor: "cyan",
+  },
+  BtnContainer: {
+    height: "60%",
+    rowGap: 20,
+    width: "100%",
   },
   RowOne: {
     flexDirection: 'row',
-  
+    justifyContent: "space-between",
+  },
+  RowTwo: {
+    flexDirection: 'row',
+    justifyContent: "space-between",
+  },
+  RowThree: {
+    flexDirection: 'row',
+    justifyContent: "space-between",
+  },
+  RowFour: {
+    flexDirection: 'row',
+    height: "auto",
     justifyContent: 'space-between',
   },
-  item: {
-    backgroundColor: '#f0f0f0',
-    padding: 10,
-    marginHorizontal: 5,
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: "wrap",
+    // backgroundColor:"orange",
+    width: '100%',
+    paddingHorizontal: 10,
+    rowGap: 8,
+    maxWidth: 250, // Adjust as needed for your layout
+    marginBottom: 10, // Adds space between rows
+  },
+  squareButton: {
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    marginBottom: 10,
+    borderRadius: 10,
+  },
+  buttonText: {
+    color: '#34b3fa',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  plusButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 140, // Height set to 2 rows (60 + 60)
+    backgroundColor: '#ade1ff',
+    width: 60,
     borderRadius: 5,
   },
-  itemText: {
-    fontSize: 18,
-    color: '#333',
+  plusButtonText: {
+    fontSize: 20,
+    color: '#34b3fa',
+    fontWeight: 'bold',
   },
+  RowFive: {
+    columnGap:20,
+    width: "100%",
+    flexDirection:'row'
+
+  },
+  ZeroBtn: {
+    flex: 3,
+    borderRadius: 5,
+    height: 60,
+ justifyContent:'center',
+ alignItems:'center',
+    backgroundColor: "#fff"
+  }
 });
 
 export default App;
